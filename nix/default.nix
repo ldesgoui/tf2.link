@@ -1,56 +1,34 @@
 { sources ? import ./sources.nix
 }:
 let
-  mozilla-overlay = import sources.nixpkgs-mozilla;
-
   pkgs = import sources.nixpkgs {
-    overlays = [ mozilla-overlay ];
+    overlays = [
+      (import "${sources.nixpkgs-mozilla}/rust-overlay.nix")
+      sources-overlay
+      (import ./overlay.nix)
+    ];
   };
 
-  gitignoreSource = (import sources."gitignore.nix" { inherit (pkgs) lib; }).gitignoreSource;
+  sources-overlay = self: pkgs: {
+    rustChannels =
+      let
+        f = manifest:
+          pkgs.lib.rustLib.fromManifestFile
+            manifest
+            { inherit (pkgs) stdenv fetchurl patchelf; };
+      in
+      {
+        stable = f sources.rust-stable-manifest;
+        nightly = f sources.rust-nightly-manifest;
+      };
 
-  rust = pkgs.latest.rustChannels.stable.rust.override {
-    targets = [ "wasm32-unknown-unknown" ];
-  };
+    inherit (import sources."gitignore" { inherit (pkgs) lib; }) gitignoreSource;
 
-  devTools = {
-    inherit (pkgs)
-      pre-commit
-      niv nixpkgs-fmt nix-linter
-      terraform-full
-      ;
 
-    inherit rust;
-  };
-
-  pre-commit-check = (import sources."pre-commit-hooks.nix").run {
-    src = gitignoreSource ../.;
-
-    hooks = {
-      nix-linter.enable = true;
-      nixpkgs-fmt.enable = true;
-
-      terraform-format.enable = true;
-
-      clippy.enable = true;
-      rustfmt.enable = true;
-
-      shellcheck.enable = true;
+    naersk = pkgs.callPackage sources.naersk {
+      cargo = self.rustChannels.nightly.cargo;
+      rustc = self.rustChannels.stable.rust.override { targets = [ "wasm32-unknown-unknown" ]; };
     };
-
-    excludes = [ "^nix/sources\\.nix$" ];
   };
-
 in
-{
-  devShell = pkgs.mkShell {
-    buildInputs = builtins.attrValues devTools;
-    shellHook = ''
-      ${pre-commit-check.shellHook}
-    '';
-  };
-
-  ci = {
-    inherit pre-commit-check;
-  };
-}
+pkgs

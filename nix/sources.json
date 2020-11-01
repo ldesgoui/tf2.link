@@ -1,8 +1,6 @@
 {
-    "gitignore.nix": {
+    "gitignore": {
         "branch": "master",
-        "description": "Nix function for filtering local git sources",
-        "homepage": "",
         "owner": "hercules-ci",
         "repo": "gitignore.nix",
         "rev": "c4662e662462e7bf3c2a968483478a665d00e717",
@@ -11,40 +9,48 @@
         "url": "https://github.com/hercules-ci/gitignore.nix/archive/c4662e662462e7bf3c2a968483478a665d00e717.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "naersk": {
+        "branch": "master",
+        "owner": "nmattia",
+        "repo": "naersk",
+        "rev": "d645515b7159c75087b3d51f23a68047c2c09699",
+        "sha256": "16hjyf1nkvwhb5nw989qhm3gdlim5wfw515bnvxpix5ff8jfbh9x",
+        "type": "tarball",
+        "url": "https://github.com/nmattia/naersk/archive/d645515b7159c75087b3d51f23a68047c2c09699.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "nixpkgs": {
-        "branch": "nixos-20.03",
-        "description": "A read-only mirror of NixOS/nixpkgs tracking the released channels. Send issues and PRs to",
-        "homepage": "https://github.com/NixOS/nixpkgs",
+        "branch": "release-20.09",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "b4db68ff563895eea6aab4ff24fa04ef403dfe14",
-        "sha256": "1qbs7p0mmcmpg70ibd437hl57byqx5q0pc61p1dckrkazj7kq0pc",
+        "rev": "1c50dc407cfc4ed42cf753d2e41499842288d1d8",
+        "sha256": "0x5hwg2haqp569a5m7k1lz4cz73wxg5kzy5p04b20bly2v3w3vxs",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/b4db68ff563895eea6aab4ff24fa04ef403dfe14.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/1c50dc407cfc4ed42cf753d2e41499842288d1d8.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs-mozilla": {
         "branch": "master",
-        "description": "mozilla related nixpkgs (extends nixos/nixpkgs repo)",
-        "homepage": null,
         "owner": "mozilla",
         "repo": "nixpkgs-mozilla",
-        "rev": "57c8084c7ef41366993909c20491e359bbb90f54",
-        "sha256": "0lchhjys1jj8fdiisd2718sqd63ys7jrj6hq6iq9l1gxj3mz2w81",
+        "rev": "8c007b60731c07dd7a052cce508de3bb1ae849b4",
+        "sha256": "1zybp62zz0h077zm2zmqs2wcg3whg6jqaah9hcl1gv4x8af4zhs6",
         "type": "tarball",
-        "url": "https://github.com/mozilla/nixpkgs-mozilla/archive/57c8084c7ef41366993909c20491e359bbb90f54.tar.gz",
+        "url": "https://github.com/mozilla/nixpkgs-mozilla/archive/8c007b60731c07dd7a052cce508de3bb1ae849b4.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
-    "pre-commit-hooks.nix": {
-        "branch": "master",
-        "description": "Seamless integration of https://pre-commit.com git hooks with Nix.",
-        "homepage": "",
-        "owner": "cachix",
-        "repo": "pre-commit-hooks.nix",
-        "rev": "4dd50ef441796b439a56f1e0f8b127d4129f8947",
-        "sha256": "1n1290h7sp7n2hsayi4isf61p9k7r3v0kva2hjilgmlx94i6l601",
-        "type": "tarball",
-        "url": "https://github.com/cachix/pre-commit-hooks.nix/archive/4dd50ef441796b439a56f1e0f8b127d4129f8947.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    "rust-nightly-manifest": {
+        "date": "2020-10-01",
+        "sha256": "05c1lybnwaim54jbf4i63hf6rb4w8hjdj5092nqzfbf1ndrn61z1",
+        "type": "file",
+        "url": "https://static.rust-lang.org/dist/2020-10-01/channel-rust-nightly.toml",
+        "url_template": "https://static.rust-lang.org/dist/<date>/channel-rust-nightly.toml"
+    },
+    "rust-stable-manifest": {
+        "sha256": "1sm9g2vkzm8a6w35rrwngnzac28ryszbzwl5y5wrj4qxlmjxw8n5",
+        "type": "file",
+        "url": "https://static.rust-lang.org/dist/channel-rust-1.46.0.toml",
+        "url_template": "https://static.rust-lang.org/dist/channel-rust-<version>.toml",
+        "version": "1.46.0"
     }
 }
