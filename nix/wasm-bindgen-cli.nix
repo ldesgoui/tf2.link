@@ -1,9 +1,7 @@
 { rustPlatform, fetchFromGitHub, pkg-config, openssl }:
-
 let
   version = "0.2.67";
 in
-
 rustPlatform.buildRustPackage {
   pname = "wasm-bindgen-cli";
   inherit version;
@@ -17,9 +15,10 @@ rustPlatform.buildRustPackage {
 
   cargoBuildFlags = [ "-p wasm-bindgen-cli" ];
   cargoPatches = [ ./wasm-bindgen-cargo-lock.patch ];
-  cargoSha256 = "14v23sx4wrkv9p37mdzw97q5x67kfp3xw7n2wxmwbj9vzdgxvpmb";
+  cargoSha256 = "0dc47381d7j3i555wkj8dzszbhk99mhr9pgg4gf8f2nq0vp19y5a";
 
-  buildInputs = [ pkg-config openssl ];
+  nativeBuildInputs = [ pkg-config ];
+  buildInputs = [ openssl ];
 
   doCheck = false;
 }

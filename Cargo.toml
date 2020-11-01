@@ -1,4 +1,4 @@
 [workspace]
 members = [
-    "wasm-test",
+    "worker-version",
 ]
