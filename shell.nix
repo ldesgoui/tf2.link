@@ -5,6 +5,7 @@ pkgs.mkShell {
     inherit (pkgs)
       niv nixpkgs-fmt nix-linter
       wasm-bindgen-cli
+      binaryen
       ;
 
     rust = pkgs.rustChannels.stable.rust.override {

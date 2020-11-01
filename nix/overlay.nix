@@ -39,6 +39,17 @@ self: pkgs: {
     copyLibs = true;
   };
 
+  workers-modules-bindgen = pkgs.stdenv.mkDerivation {
+    name = "workers-modules-bindgen";
 
+    src = self.workers-modules;
 
+    nativeBuildInputs = [ pkgs.wasm-bindgen-cli ];
+
+    buildCommand = ''
+      for module in $src/lib/*; do
+        wasm-bindgen --target no-modules --no-typescript --out-dir $out $module
+      done
+    '';
+  };
 }
