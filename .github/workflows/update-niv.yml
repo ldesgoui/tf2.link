@@ -9,16 +9,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - uses: actions/checkout@v2.3.2
+    - uses: actions/checkout@v2.3.3
 
-    - uses: cachix/install-nix-action@v10
+    - uses: cachix/install-nix-action@v11
 
     - run: nix-shell --run "GITHUB_PATH= niv update"
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v3
       with:
-        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        token: "${{ secrets.GITHUB_TOKEN }}"
         commit-message: "[automation] update niv dependencies"
         title: "[automation] update niv dependencies"
         branch: "automation/update-niv-dependencies"
