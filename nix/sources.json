@@ -1,6 +1,8 @@
 {
     "gitignore": {
         "branch": "master",
+        "description": "Nix function for filtering local git sources",
+        "homepage": "",
         "owner": "hercules-ci",
         "repo": "gitignore.nix",
         "rev": "c4662e662462e7bf3c2a968483478a665d00e717",
@@ -11,26 +13,32 @@
     },
     "naersk": {
         "branch": "master",
+        "description": "Build rust crates in Nix. No configuration, no code generation, no IFD. Sandbox friendly.",
+        "homepage": "",
         "owner": "nmattia",
         "repo": "naersk",
-        "rev": "d645515b7159c75087b3d51f23a68047c2c09699",
-        "sha256": "16hjyf1nkvwhb5nw989qhm3gdlim5wfw515bnvxpix5ff8jfbh9x",
+        "rev": "ce273fa593dcc94a629d0d869f07d96d2b337e37",
+        "sha256": "1hx47l7gfim0cs9fn8r91wwl0641wi2fdq67ygb4ydx7msb8sm6h",
         "type": "tarball",
-        "url": "https://github.com/nmattia/naersk/archive/d645515b7159c75087b3d51f23a68047c2c09699.tar.gz",
+        "url": "https://github.com/nmattia/naersk/archive/ce273fa593dcc94a629d0d869f07d96d2b337e37.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs": {
         "branch": "release-20.09",
+        "description": "Nix Packages collection",
+        "homepage": "",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "1c50dc407cfc4ed42cf753d2e41499842288d1d8",
-        "sha256": "0x5hwg2haqp569a5m7k1lz4cz73wxg5kzy5p04b20bly2v3w3vxs",
+        "rev": "a4fdefeb39b65e2b9de23b0d6f0ac06983da1599",
+        "sha256": "0ibw8243ayvcspmii9dwgvd0xdsmk7bskd5953ppqiy1sqk9ka72",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/1c50dc407cfc4ed42cf753d2e41499842288d1d8.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/a4fdefeb39b65e2b9de23b0d6f0ac06983da1599.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs-mozilla": {
         "branch": "master",
+        "description": "mozilla related nixpkgs (extends nixos/nixpkgs repo)",
+        "homepage": null,
         "owner": "mozilla",
         "repo": "nixpkgs-mozilla",
         "rev": "8c007b60731c07dd7a052cce508de3bb1ae849b4",
